@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import CoinTossCounter from "./CoinTossCounter";
-import Header from "./Header";
-import Content from "./Content";
-import WelcomeBack from "./WelcomeBack";
-import Greeting from "./Greeting";
-import CountButton, { IncrementButtons } from "./IncrementButtons";
-import Footer from "./Footer";
-import ClickTimes from "./ClickTimes";
 import Subscribe from "./Subscribe.js";
+import Header from "./Header";
+import SubscriberForm from "./SubscriberForm";
+import SubscriberList from "./SubscriberList";
+import Content from "./Content";
+import CoinTossCounter from "./CoinTossCounter";
+import WelcomeBack from "./WelcomeBack";
+import CountButton, { IncrementButtons } from "./IncrementButtons";
+import Greeting from "./Greeting";
+import ClickTimes from "./ClickTimes";
+import DogForm from "./DogForm";
+import Footer from "./Footer";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,6 +19,19 @@ function App() {
   const [fontSize, setFontSize] = useState(12);
   const fontSizeIncrease = () => setFontSize(fontSize + 2);
 
+  const [subscribers, setSubscribers] = useState([]);
+
+  const createSubscriber = (newSubscriber) =>
+    setSubscribers((currentSubscribers) => [
+      ...currentSubscribers,
+      newSubscriber,
+    ]);
+
+  const deleteSubscriber = (indexToDelete) =>
+    setSubscribers((currentSubscribers) =>
+      currentSubscribers.filter((_, index) => index !== indexToDelete)
+    );
+
   return (
     <>
       <Subscribe />
@@ -23,6 +39,11 @@ function App() {
         loggedIn={loggedIn}
         handleLoggedInClick={toggleLoggedIn}
         handleFontSizeIncrease={fontSizeIncrease}
+      />
+      <SubscriberForm createSubscriber={createSubscriber} />
+      <SubscriberList
+        subscribers={subscribers}
+        deleteSubscriber={deleteSubscriber}
       />
       <Content loggedIn={loggedIn} text="CONTENT" fontStyle={fontSize} />
       <CoinTossCounter />
@@ -35,6 +56,7 @@ function App() {
       <Greeting name={"Houston"} greeting={"good evening"} />
       <CountButton />
       <ClickTimes />
+      <DogForm />
       <Footer />
     </>
   );
