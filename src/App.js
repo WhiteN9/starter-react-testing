@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CoinTossCounter from "./CoinTossCounter";
 import Header from "./Header";
 import Content from "./Content";
 import WelcomeBack from "./WelcomeBack";
@@ -12,13 +13,18 @@ function App() {
   const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
   const [fontSize, setFontSize] = useState(12);
-  const fontSizeIncrease = () => setFontSize(fontSize+2);
+  const fontSizeIncrease = () => setFontSize(fontSize + 2);
 
   return (
     <>
       <Subscribe />
-      <Header loggedIn={loggedIn} handleLoggedInClick={toggleLoggedIn} handleFontSizeIncrease={fontSizeIncrease} />
-      <Content loggedIn={loggedIn} text="CONTENT" fontStyle={fontSize}/>
+      <Header
+        loggedIn={loggedIn}
+        handleLoggedInClick={toggleLoggedIn}
+        handleFontSizeIncrease={fontSizeIncrease}
+      />
+      <Content loggedIn={loggedIn} text="CONTENT" fontStyle={fontSize} />
+      <CoinTossCounter />
       <WelcomeBack name="Joe" />
       <WelcomeBack name="Anna" />
       <WelcomeBack />
