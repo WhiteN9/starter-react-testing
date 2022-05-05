@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import ClickTimes from "./ClickTimes";
 import Subscribe from "./Subscribe.js";
 import SubscriberForm from "./SubscriberForm.js";
+import RSVPForm from "./RSVPForm";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,6 +39,7 @@ function App() {
       <CountButton />
       <ClickTimes />
       <Footer />
+      <RSVPForm />
     </>
   );
 }
