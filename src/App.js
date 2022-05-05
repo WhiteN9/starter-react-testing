@@ -6,6 +6,7 @@ import WelcomeBack from "./WelcomeBack";
 import Greeting from "./Greeting";
 import CountButton, { IncrementButtons } from "./IncrementButtons";
 import Footer from "./Footer";
+import ClickTimes from "./ClickTimes";
 import Subscribe from "./Subscribe.js";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Greeting name={"Samara"} greeting={"good afternoon"} />
       <Greeting name={"Houston"} greeting={"good evening"} />
       <CountButton />
+      <ClickTimes />
       <Footer />
     </>
   );
