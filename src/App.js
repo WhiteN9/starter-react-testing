@@ -8,6 +8,7 @@ import CountButton, { IncrementButtons } from "./IncrementButtons";
 import Footer from "./Footer";
 import ClickTimes from "./ClickTimes";
 import Subscribe from "./Subscribe.js";
+import SubscriberForm from "./SubscriberForm.js";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ function App() {
         handleLoggedInClick={toggleLoggedIn}
         handleFontSizeIncrease={fontSizeIncrease}
       />
+      <SubscriberForm />
       <Content loggedIn={loggedIn} text="CONTENT" fontStyle={fontSize} />
       <CoinTossCounter />
       <WelcomeBack name="Joe" />
