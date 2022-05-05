@@ -33,7 +33,7 @@ export function IncrementButtons() {
 
 function CountButton() {
   const [clicked, setClicked] = useState(0);
-  console.log("Count status:", clicked);
+  //console.log("Count status:", clicked);
   return (
     <section>
       <p>Click Count: {clicked} </p>

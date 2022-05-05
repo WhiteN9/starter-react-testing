@@ -11,11 +11,14 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
+  const [fontSize, setFontSize] = useState(12);
+  const fontSizeIncrease = () => setFontSize(fontSize+2);
+
   return (
     <>
       <Subscribe />
-      <Header loggedIn={loggedIn} handleLoggedInClick={toggleLoggedIn} />
-      <Content loggedIn={loggedIn} text="CONTENT" />
+      <Header loggedIn={loggedIn} handleLoggedInClick={toggleLoggedIn} handleFontSizeIncrease={fontSizeIncrease} />
+      <Content loggedIn={loggedIn} text="CONTENT" fontStyle={fontSize}/>
       <WelcomeBack name="Joe" />
       <WelcomeBack name="Anna" />
       <WelcomeBack />
